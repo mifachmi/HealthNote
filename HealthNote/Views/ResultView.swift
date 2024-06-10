@@ -133,19 +133,34 @@ struct ResultView: View {
 }
 
 #Preview {
-    struct ResultView_Preview: View {
-        @State var navigationController = NavigationController()
-        @State var selectedNote = emptyNote
-        @State var lang: SpeechLanguage = .indonesia
-        @Query var notes: [Note]
-        
-        var body: some View {
-            ResultView(navController: navigationController, noteFromHome: .constant(notes.first!))
-                .environment(SpeechRecognitionController(lang: lang.rawValue))
-                .environment(OpenAIViewModel())
-                .modelContainer(AppModelContainer.container)
-        }
-    }
+    //    struct ResultView_Preview: View {
+    //        @State var navigationController = NavigationController()
+    //        @State var lang: SpeechLanguage = .indonesia
+    //        @Query var notes: [Note]
+    //
+    //        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    //        let container = try! ModelContainer(for: Note.self, configurations: config)
+    //        let emptyNote = Note(id: 0, title: "", createdAt: "", summary: "", rawVoice: "")
+    //
+    //        var body: some View {
+    //            ResultView(navController: navigationController, noteFromHome: .constant(emptyNote))
+    //                .environment(SpeechRecognitionController(lang: lang.rawValue))
+    //                .environment(OpenAIViewModel())
+    //                .modelContainer(AppModelContainer.container)
+    //        }
+    //    }
+    //
+    //    return ResultView_Preview()
     
-    return ResultView_Preview()
+    let navigationController = NavigationController()
+    let lang: SpeechLanguage = .indonesia
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Note.self, configurations: config)
+    let emptyNote = Note(id: 0, title: "", createdAt: "", summary: "", rawVoice: "")
+    
+    return ResultView(navController: navigationController, noteFromHome: .constant(emptyNote))
+        .environment(SpeechRecognitionController(lang: lang.rawValue))
+        .environment(OpenAIViewModel())
+        .modelContainer(container)
+    
 }
