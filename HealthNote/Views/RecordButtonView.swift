@@ -9,38 +9,42 @@ import SwiftUI
 import Speech
 
 struct RecordButtonView: View {
+    
     @State private var isSpeechRecognizerAvailable = false
     @State private var statusMessage = "Checking availability..."
-    @State var isSpeechRecognizeAuthorized = false
+    @State var isRecordingFinished = false
     @State private var showAlert = false
-    @EnvironmentObject var speechController: SpeechRecognitionController
-    @Environment(SpeechRecognitionNewController.self) var newSpeechController
-    
+
+    @Environment(SpeechRecognitionController.self) var speechController
+    @Bindable var navController: NavigationController
+    @Binding var selectedLanguage: SpeechLanguage
+        
     var body: some View {
+        if !speechController.isRecording {
+            Text("Click the button below\nto start recording your\nconversation")
+                .multilineTextAlignment(.center)
+                .font(.body)
+                .foregroundStyle(.gray)
+        }
         Button {
-            print("hehehe 2")
             requestSpeechRecognitionAuthorization { authorized in
                 if authorized {
-                    print(authorized)
-                    self.newSpeechController.isRecording.toggle()
-                    self.newSpeechController.isRecording ? self.newSpeechController.startRecordingAndTranscribing() : self.newSpeechController.stopRecordingAndTranscribing()
-                    
-                    //                    self.isSpeechRecognizeAuthorized.toggle()
-                    //                    if self.isSpeechRecognizeAuthorized {
-                    //                        print(authorized)
-                    //
-                    //                        self.newSpeechController.isRecording.toggle()
-                    //                        self.newSpeechController.isRecording ? self.newSpeechController.startRecordingAndTranscribing() : self.newSpeechController.stopRecordingAndTranscribing()
-                    //                    } else {
-                    //                        print(authorized)
-                    //                    }
+                    self.speechController.isRecording.toggle()
+                    speechController.speechLanguage = selectedLanguage.rawValue
+                    if (self.speechController.isRecording) {
+                        self.speechController.startRecordingAndTranscribing()
+                        isRecordingFinished = false
+                    } else {
+                        self.speechController.stopRecordingAndTranscribing()
+                        isRecordingFinished = true
+                    }
                     
                 } else {
                     self.showAlert = true
                 }
             }
         } label: {
-            Image("record")
+            Image(self.speechController.isRecording ? "stop" : "record")
         }
         .padding(.top)
         .onAppear {
@@ -56,6 +60,9 @@ struct RecordButtonView: View {
                 secondaryButton: .cancel()
             )
         }
+        .navigationDestination(isPresented: $isRecordingFinished) {
+            ResultView(navController: navController, noteFromHome: .constant(emptyNote))
+        }
     }
     
     private func checkSpeechRecognizerAvailability() {
@@ -69,6 +76,17 @@ struct RecordButtonView: View {
 }
 
 #Preview {
-    RecordButtonView()
-        .environment(SpeechRecognitionNewController())
+    struct RecordButtonView_Preview: View {
+        @State var navigationController = NavigationController()
+        @State var speechLang: SpeechLanguage = .indonesia
+        
+        var body: some View {
+            RecordButtonView(navController: navigationController, selectedLanguage: $speechLang)
+                .environment(SpeechRecognitionController(lang: speechLang.rawValue))
+                .modelContainer(AppModelContainer.container)
+        }
+    }
+    
+    return RecordButtonView_Preview()
+    
 }

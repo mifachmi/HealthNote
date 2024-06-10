@@ -6,49 +6,80 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
-    @State var path:[String] = []
     @State private var searchText = ""
+    @State var itemTapped: Note?
+    
+    @Bindable var navController: NavigationController
+    
+    @Environment(\.modelContext) var modelContext
+    @Query(sort: \Note.createdAt, order: .reverse) var notes: [Note]
+    
+    var filteredNames: [Note] {
+        if searchText.isEmpty {
+            notes
+        } else {
+            notes.filter { $0.title.localizedStandardContains(searchText) }
+        }
+    }
     
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack(path: $navController.path) {
             VStack(alignment: .leading) {
-                VStack(alignment: .leading) {
-                    List{
+                if notes.isEmpty {
+                    EmptyNotesView()
+                        .frame(maxWidth: .infinity)
+                } else {
+                    List {
                         Section{
-                            ForEach(notesDummyData) { data in
-                                VStack(alignment: .leading) {
-                                    Text(data.title)
-                                    Text(data.createdAt)
-                                        .font(.caption)
-                                        .fontWeight(.light)
-                                        .foregroundStyle(.gray)
-                                        .padding(.top, -6)
+                            ForEach(filteredNames) { data in
+                                Button {
+                                    navController.goToNextPage(screen: "Result")
+                                    self.itemTapped = data
+                                } label: {
+                                    VStack(alignment: .leading) {
+                                        Text(data.title)
+                                            .font(.body)
+                                            .fontWeight(.semibold)
+                                            .padding(.horizontal, 4)
+                                        Text(data.createdAt)
+                                            .font(.caption)
+                                            .fontWeight(.light)
+                                            .padding(.top, -6)
+                                            .padding(.horizontal, 4)
+                                    }
+                                    .padding(.vertical, 2)
                                 }
-                                
+                                .tint(.titleList)
                             }
-                        } header: {
-                            HStack(spacing:0){
-                                Text("Today").font(.title3).foregroundStyle(.black).fontWeight(.semibold).textCase(nil)
-                                
-                            }.offset(x: -16).padding(.bottom, 4)
-                        }
+                            .onDelete(perform: { indexSet in
+                                deleteItem(at: indexSet)
+                            })
+                        } 
+                    
+//                    header: {
+//                            HStack(spacing:0){
+//                                Text(compareDates(date1String: notes.first?.createdAt ?? getCurrentDate()))
+//                                    .font(.title3).foregroundStyle(.titleList)
+//                                    .fontWeight(.semibold).textCase(nil)
+//                                
+//                            }.offset(x: -16).padding(.bottom, 4)
+//                        }
                     }
-                    .scrollContentBackground(.hidden)
+                    .scrollContentBackground(.automatic)
+                    .searchable(text: $searchText, placement: .toolbar, prompt: "Search note title")
                 }
                 
-                Spacer()
-                
                 ZStack {
-                    Text("2 notes").font(.footnote)
+                    Text("\(notes.count) notes").font(.footnote)
                         .frame(maxWidth: .infinity, alignment: .center)
                     
                     HStack {
                         Spacer()
                         Button {
-                            print("hehehe 1")
-                            path.append("Record")
+                            navController.goToNextPage(screen: "Record")
                         } label: {
                             Image(systemName: "square.and.pencil")
                                 .font(.title2)
@@ -58,20 +89,53 @@ struct HomeView: View {
                     
                 }
                 .padding(.top)
-                .padding(.bottom, 2)
+                .padding(.bottom, 16)
                 .frame(maxWidth: .infinity)
                 .background(.ultraThinMaterial)
             }
+            .onAppear {
+                let notesByDate = toNoteByDate(data: notes)
+                print("isi notesByDate: \(String(describing: notesByDate))")
+                
+                notesByDate.forEach { dataNoteByDate in
+                    print("isi dataNoteByDate: \(String(describing: dataNoteByDate.notesStruct.count))")
+                    
+                    dataNoteByDate.notesStruct.forEach { dataNote in
+                        print("isi dataNote: \(String(describing: dataNote.title))")
+                    }
+                }
+            }
             .navigationTitle("Health's Notes")
             .navigationDestination(for: String.self, destination: { path in
-                RecordView()
+                if path == "Result" {
+                    ResultView(navController: navController, noteFromHome: .constant(itemTapped ?? emptyNote))
+                } else {
+                    RecordView(navController: navController)
+                }
             })
-            .searchable(text: $searchText, placement: .toolbar, prompt: "Search note title")
-            .background(.regularMaterial)
+            .background(.recordBackground)
+        }
+    }
+    
+    func deleteItem(at offSets: IndexSet) {
+        for offSet in offSets {
+            let selectedItem = notes[offSet]
+            modelContext.delete(selectedItem)
         }
     }
 }
 
 #Preview {
-    HomeView()
+    struct HomeView_Preview: View {
+        @State var navigationController = NavigationController()
+        
+        var body: some View {
+            HomeView(navController: navigationController)
+                .modelContainer(AppModelContainer.container)
+                .environment(NavigationController())
+        }
+    }
+    
+    return HomeView_Preview()
+    
 }

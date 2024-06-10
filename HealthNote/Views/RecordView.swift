@@ -9,75 +9,65 @@ import SwiftUI
 import Speech
 
 struct RecordView: View {
-    @EnvironmentObject var speechController: SpeechRecognitionController
-    @State private var isLiveTranslationOn = false
-    @State private var selectedLanguage = ""
-    @Environment(SpeechRecognitionNewController.self) var newSpeechController
+    
+    @State private var isLiveTranslationOn = true
+    @State private var selectedLanguage: SpeechLanguage = .indonesia
+    @Environment(SpeechRecognitionController.self) var speechController
+    @Bindable var navController: NavigationController
     
     var body: some View {
         VStack {
             Form {
                 Section {
                     Picker("Language", selection: $selectedLanguage) {
-                        Text("Indonesia").tag("Indonesia")
-                        Text("Bahasa Inggris").tag("Inggris")
+                        Text("Indonesian").tag(SpeechLanguage.indonesia)
+                        Text("English (US)").tag(SpeechLanguage.english)
                     }
                     Toggle("Enable Live Transcription", isOn: $isLiveTranslationOn)
                 } footer: {
-                    Text("Using this feature, you can see the live text of the process of speech-to-text.")
+                    Text("Enabling this feature, you can see the live text of the process of speech-to-text below.")
                 }
                 
-                //                Section {
-                //                    Text("\(speechController.outputText)")
-                //                        .multilineTextAlignment(.leading)
-                //                        .font(.subheadline)
-                //                }.listRowBackground(Color.clear)
-                //
-                //                Section {
-                //                    Text("\(speechController.transcript)")
-                //                        .multilineTextAlignment(.leading)
-                //                        .font(.subheadline)
-                //                        .background(.blue)
-                //                    Text("\(speechController.transcript.count)")
-                //                }.listRowBackground(Color.clear)
+                if isLiveTranslationOn {
+                    Section {
+                        Text("\(speechController.transcription)")
+                            .multilineTextAlignment(.leading)
+                            .font(.subheadline)
+                    }
+                }
                 
-                Section {
-                    Text("\(newSpeechController.transcription)")
-                        .multilineTextAlignment(.leading)
-                        .font(.subheadline)
-                    Text("\(newSpeechController.transcription.count)")
-                    Text("Recording Duration: \(newSpeechController.formatDuration(newSpeechController.timeStamp))") // Display the recording duration
-                        .padding()
-                }.listRowBackground(Color.clear)
             }
             .scrollContentBackground(.hidden)
+            .background(.recordBackground)
             
-            VStack {
-                WaveformView(audioLevels: newSpeechController.audioLevels) // Display the waveform
-                    .frame(height: 100)
-                    .padding()
-                Text("Click the button below\nto start recording your\nconversation")
-                    .multilineTextAlignment(.center)
-                    .font(.body)
-                    .foregroundStyle(.gray)
-                speechController.getButton()
-            }
+            Text("\(speechController.formatDuration(speechController.timeStamp))")
+                .padding()
+            
+            RecordButtonView(navController: navController, selectedLanguage: $selectedLanguage)
             
         }
         .frame(maxHeight: .infinity)
         .navigationTitle("Record")
         .navigationBarTitleDisplayMode(.inline)
-        .background(.thickMaterial)
+        .background(.recordBackground)
+        .onAppear {
+            speechController.resetTranscription()
+        }
     }
 }
 
 #Preview {
-    RecordView().environment(SpeechRecognitionNewController())
-        .environmentObject(SpeechRecognitionController())
+    struct RecordView_Preview: View {
+        @State var navigationController = NavigationController()
+        @State var lang: SpeechLanguage = .indonesia
+        
+        var body: some View {
+            RecordView(navController: navigationController)
+                .environment(SpeechRecognitionController(lang: lang.rawValue))
+                .modelContainer(AppModelContainer.container)
+        }
+    }
+    
+    return RecordView_Preview()
+    
 }
-
-//struct RecordView_Preview: PreviewProvider {
-//    static var previews: some View {
-//        RecordView(newSpeechController: SpeechRecognitionNewController()).environmentObject(SpeechRecognitionController())
-//    }
-//}
