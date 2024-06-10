@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C7598B22C0B4CBB001B4CCF /* SpeechRecognitionNewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7598B12C0B4CBB001B4CCF /* SpeechRecognitionNewController.swift */; };
-		2C7598B42C0B8A7E001B4CCF /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7598B32C0B8A7E001B4CCF /* WaveformView.swift */; };
+		2C5D76642C10AE3400C0F8B8 /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5D76632C10AE3400C0F8B8 /* NetworkServices.swift */; };
+		2C5D76662C116AE300C0F8B8 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5D76652C116AE300C0F8B8 /* ResultView.swift */; };
+		2C5D76682C116DE800C0F8B8 /* RawVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5D76672C116DE800C0F8B8 /* RawVoice.swift */; };
+		2C5D766D2C11ABDD00C0F8B8 /* OpenAIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5D766C2C11ABDD00C0F8B8 /* OpenAIModel.swift */; };
+		2C5D766F2C11F03400C0F8B8 /* OpenAIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5D766E2C11F03400C0F8B8 /* OpenAIViewModel.swift */; };
+		2C5D76712C13296D00C0F8B8 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5D76702C13296D00C0F8B8 /* NavigationController.swift */; };
+		2C5D76732C14223700C0F8B8 /* AppModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5D76722C14223700C0F8B8 /* AppModelContainer.swift */; };
+		2C5D76752C142F5900C0F8B8 /* EmptyNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5D76742C142F5900C0F8B8 /* EmptyNotesView.swift */; };
+		2C5D76792C157F7E00C0F8B8 /* LookUpTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5D76782C157F7E00C0F8B8 /* LookUpTextView.swift */; };
+		2C7598B22C0B4CBB001B4CCF /* SpeechRecognitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7598B12C0B4CBB001B4CCF /* SpeechRecognitionController.swift */; };
 		2CC997472C05C81E008C9EB8 /* HealthNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC997462C05C81E008C9EB8 /* HealthNoteApp.swift */; };
 		2CC997492C05C81E008C9EB8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC997482C05C81E008C9EB8 /* ContentView.swift */; };
 		2CC9974B2C05C81F008C9EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CC9974A2C05C81F008C9EB8 /* Assets.xcassets */; };
@@ -19,12 +27,20 @@
 		2CC9975E2C074F2C008C9EB8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9975D2C074F2C008C9EB8 /* Utils.swift */; };
 		2CC997602C086B44008C9EB8 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9975F2C086B44008C9EB8 /* Authorization.swift */; };
 		2CC997632C08720B008C9EB8 /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC997622C08720B008C9EB8 /* RecordButtonView.swift */; };
-		2CC997662C0873AB008C9EB8 /* SpeechRecognitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC997652C0873AB008C9EB8 /* SpeechRecognitionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C7598B12C0B4CBB001B4CCF /* SpeechRecognitionNewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionNewController.swift; sourceTree = "<group>"; };
-		2C7598B32C0B8A7E001B4CCF /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
+		2C5D76602C10949900C0F8B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C5D76632C10AE3400C0F8B8 /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
+		2C5D76652C116AE300C0F8B8 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		2C5D76672C116DE800C0F8B8 /* RawVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawVoice.swift; sourceTree = "<group>"; };
+		2C5D766C2C11ABDD00C0F8B8 /* OpenAIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIModel.swift; sourceTree = "<group>"; };
+		2C5D766E2C11F03400C0F8B8 /* OpenAIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIViewModel.swift; sourceTree = "<group>"; };
+		2C5D76702C13296D00C0F8B8 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		2C5D76722C14223700C0F8B8 /* AppModelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelContainer.swift; sourceTree = "<group>"; };
+		2C5D76742C142F5900C0F8B8 /* EmptyNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyNotesView.swift; sourceTree = "<group>"; };
+		2C5D76782C157F7E00C0F8B8 /* LookUpTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpTextView.swift; sourceTree = "<group>"; };
+		2C7598B12C0B4CBB001B4CCF /* SpeechRecognitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionController.swift; sourceTree = "<group>"; };
 		2CC997432C05C81E008C9EB8 /* HealthNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC997462C05C81E008C9EB8 /* HealthNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthNoteApp.swift; sourceTree = "<group>"; };
 		2CC997482C05C81E008C9EB8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,9 +51,7 @@
 		2CC9975A2C074E3B008C9EB8 /* NotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesModel.swift; sourceTree = "<group>"; };
 		2CC9975D2C074F2C008C9EB8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2CC9975F2C086B44008C9EB8 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
-		2CC997612C086C6A008C9EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2CC997622C08720B008C9EB8 /* RecordButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonView.swift; sourceTree = "<group>"; };
-		2CC997652C0873AB008C9EB8 /* SpeechRecognitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,11 +65,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C5D765D2C104AF700C0F8B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C5D76622C10AE1800C0F8B8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2C5D76632C10AE3400C0F8B8 /* NetworkServices.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2C5D766B2C11A8D200C0F8B8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2C5D766E2C11F03400C0F8B8 /* OpenAIViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		2CC9973A2C05C81E008C9EB8 = {
 			isa = PBXGroup;
 			children = (
 				2CC997452C05C81E008C9EB8 /* HealthNote */,
 				2CC997442C05C81E008C9EB8 /* Products */,
+				2C5D765D2C104AF700C0F8B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,8 +108,9 @@
 		2CC997452C05C81E008C9EB8 /* HealthNote */ = {
 			isa = PBXGroup;
 			children = (
+				2C5D766B2C11A8D200C0F8B8 /* ViewModel */,
+				2C5D76622C10AE1800C0F8B8 /* Network */,
 				2CC997642C087381008C9EB8 /* Controller */,
-				2CC997612C086C6A008C9EB8 /* Info.plist */,
 				2CC9975C2C074F20008C9EB8 /* Utils */,
 				2CC997592C074E20008C9EB8 /* Model */,
 				2CC997542C05C832008C9EB8 /* Views */,
@@ -79,6 +118,7 @@
 				2CC997482C05C81E008C9EB8 /* ContentView.swift */,
 				2CC9974A2C05C81F008C9EB8 /* Assets.xcassets */,
 				2CC9974C2C05C81F008C9EB8 /* Preview Content */,
+				2C5D76602C10949900C0F8B8 /* Info.plist */,
 			);
 			path = HealthNote;
 			sourceTree = "<group>";
@@ -97,7 +137,10 @@
 				2CC997552C074634008C9EB8 /* HomeView.swift */,
 				2CC997572C0747AE008C9EB8 /* RecordView.swift */,
 				2CC997622C08720B008C9EB8 /* RecordButtonView.swift */,
-				2C7598B32C0B8A7E001B4CCF /* WaveformView.swift */,
+				2C5D76652C116AE300C0F8B8 /* ResultView.swift */,
+				2C5D76672C116DE800C0F8B8 /* RawVoice.swift */,
+				2C5D76742C142F5900C0F8B8 /* EmptyNotesView.swift */,
+				2C5D76782C157F7E00C0F8B8 /* LookUpTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -106,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				2CC9975A2C074E3B008C9EB8 /* NotesModel.swift */,
+				2C5D766C2C11ABDD00C0F8B8 /* OpenAIModel.swift */,
+				2C5D76722C14223700C0F8B8 /* AppModelContainer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,8 +167,8 @@
 		2CC997642C087381008C9EB8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2CC997652C0873AB008C9EB8 /* SpeechRecognitionController.swift */,
-				2C7598B12C0B4CBB001B4CCF /* SpeechRecognitionNewController.swift */,
+				2C7598B12C0B4CBB001B4CCF /* SpeechRecognitionController.swift */,
+				2C5D76702C13296D00C0F8B8 /* NavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,17 +243,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C7598B22C0B4CBB001B4CCF /* SpeechRecognitionNewController.swift in Sources */,
-				2C7598B42C0B8A7E001B4CCF /* WaveformView.swift in Sources */,
+				2C7598B22C0B4CBB001B4CCF /* SpeechRecognitionController.swift in Sources */,
+				2C5D76792C157F7E00C0F8B8 /* LookUpTextView.swift in Sources */,
 				2CC997562C074634008C9EB8 /* HomeView.swift in Sources */,
+				2C5D76682C116DE800C0F8B8 /* RawVoice.swift in Sources */,
 				2CC997582C0747AE008C9EB8 /* RecordView.swift in Sources */,
+				2C5D76732C14223700C0F8B8 /* AppModelContainer.swift in Sources */,
 				2CC997492C05C81E008C9EB8 /* ContentView.swift in Sources */,
+				2C5D766F2C11F03400C0F8B8 /* OpenAIViewModel.swift in Sources */,
 				2CC997472C05C81E008C9EB8 /* HealthNoteApp.swift in Sources */,
+				2C5D76642C10AE3400C0F8B8 /* NetworkServices.swift in Sources */,
+				2C5D766D2C11ABDD00C0F8B8 /* OpenAIModel.swift in Sources */,
+				2C5D76662C116AE300C0F8B8 /* ResultView.swift in Sources */,
 				2CC9975B2C074E3B008C9EB8 /* NotesModel.swift in Sources */,
+				2C5D76752C142F5900C0F8B8 /* EmptyNotesView.swift in Sources */,
+				2C5D76712C13296D00C0F8B8 /* NavigationController.swift in Sources */,
 				2CC997602C086B44008C9EB8 /* Authorization.swift in Sources */,
 				2CC9975E2C074F2C008C9EB8 /* Utils.swift in Sources */,
 				2CC997632C08720B008C9EB8 /* RecordButtonView.swift in Sources */,
-				2CC997662C0873AB008C9EB8 /* SpeechRecognitionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +398,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HealthNote/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Health Note";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "as we want to record the speech, so we also want to get grant access to user's microphone";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "we want to translate the speech into text instead of typing the speech";
@@ -379,6 +432,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HealthNote/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Health Note";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "as we want to record the speech, so we also want to get grant access to user's microphone";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "we want to translate the speech into text instead of typing the speech";

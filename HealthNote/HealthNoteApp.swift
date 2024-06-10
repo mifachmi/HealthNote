@@ -6,17 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct HealthNoteApp: App {
-    var speechRecognitionController = SpeechRecognitionController()
-    @State var newSpeechRecognitionController = SpeechRecognitionNewController()
+    @State var speechRecognitionController = SpeechRecognitionController(lang: "")
+    @State var openAIViewModel = OpenAIViewModel()
+    @State var navigationController = NavigationController()
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
-                .environmentObject(speechRecognitionController)
-                .environment(newSpeechRecognitionController)
+            HomeView(navController: navigationController)
+                .environment(openAIViewModel)
+                .environment(speechRecognitionController)
         }
+        .modelContainer(for: Note.self)
     }
 }
