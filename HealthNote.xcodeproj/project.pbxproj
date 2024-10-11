@@ -27,7 +27,38 @@
 		2CC9975E2C074F2C008C9EB8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9975D2C074F2C008C9EB8 /* Utils.swift */; };
 		2CC997602C086B44008C9EB8 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC9975F2C086B44008C9EB8 /* Authorization.swift */; };
 		2CC997632C08720B008C9EB8 /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC997622C08720B008C9EB8 /* RecordButtonView.swift */; };
+		2CEE61F32C240CA30067E550 /* HealthNoteWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEE61F22C240CA30067E550 /* HealthNoteWatchApp.swift */; };
+		2CEE61F52C240CA30067E550 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEE61F42C240CA30067E550 /* ContentView.swift */; };
+		2CEE61F72C240CA40067E550 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE61F62C240CA40067E550 /* Assets.xcassets */; };
+		2CEE61FA2C240CA40067E550 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE61F92C240CA40067E550 /* Preview Assets.xcassets */; };
+		2CEE61FD2C240CA40067E550 /* HealthNoteWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2CEE61F02C240CA30067E550 /* HealthNoteWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2CEE62062C242C6A0067E550 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEE62052C242C6A0067E550 /* RecordView.swift */; };
+		2CEE620B2C2436DA0067E550 /* SpeechController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEE620A2C2436DA0067E550 /* SpeechController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2CEE61FB2C240CA40067E550 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2CC9973B2C05C81E008C9EB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CEE61EF2C240CA30067E550;
+			remoteInfo = "HealthNoteWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2CEE62012C240CA40067E550 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				2CEE61FD2C240CA40067E550 /* HealthNoteWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2C5D76602C10949900C0F8B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,10 +83,26 @@
 		2CC9975D2C074F2C008C9EB8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2CC9975F2C086B44008C9EB8 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		2CC997622C08720B008C9EB8 /* RecordButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonView.swift; sourceTree = "<group>"; };
+		2CEE61F02C240CA30067E550 /* HealthNoteWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HealthNoteWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CEE61F22C240CA30067E550 /* HealthNoteWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthNoteWatchApp.swift; sourceTree = "<group>"; };
+		2CEE61F42C240CA30067E550 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2CEE61F62C240CA40067E550 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2CEE61F92C240CA40067E550 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2CEE62052C242C6A0067E550 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		2CEE62072C242CA30067E550 /* HealthNoteWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HealthNoteWatch Watch App.entitlements"; sourceTree = "<group>"; };
+		2CEE62082C242CB70067E550 /* HealthNoteWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HealthNoteWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		2CEE620A2C2436DA0067E550 /* SpeechController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2CC997402C05C81E008C9EB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CEE61ED2C240CA30067E550 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -92,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC997452C05C81E008C9EB8 /* HealthNote */,
+				2CEE61F12C240CA30067E550 /* HealthNoteWatch Watch App */,
 				2CC997442C05C81E008C9EB8 /* Products */,
 				2C5D765D2C104AF700C0F8B8 /* Frameworks */,
 			);
@@ -101,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC997432C05C81E008C9EB8 /* HealthNote.app */,
+				2CEE61F02C240CA30067E550 /* HealthNoteWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,6 +222,45 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		2CEE61F12C240CA30067E550 /* HealthNoteWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				2CEE62092C2436C50067E550 /* Controller */,
+				2CEE62082C242CB70067E550 /* HealthNoteWatch-Watch-App-Info.plist */,
+				2CEE62072C242CA30067E550 /* HealthNoteWatch Watch App.entitlements */,
+				2CEE62022C240D500067E550 /* View */,
+				2CEE61F22C240CA30067E550 /* HealthNoteWatchApp.swift */,
+				2CEE61F42C240CA30067E550 /* ContentView.swift */,
+				2CEE61F62C240CA40067E550 /* Assets.xcassets */,
+				2CEE61F82C240CA40067E550 /* Preview Content */,
+			);
+			path = "HealthNoteWatch Watch App";
+			sourceTree = "<group>";
+		};
+		2CEE61F82C240CA40067E550 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2CEE61F92C240CA40067E550 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2CEE62022C240D500067E550 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CEE62052C242C6A0067E550 /* RecordView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2CEE62092C2436C50067E550 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CEE620A2C2436DA0067E550 /* SpeechController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -183,14 +271,33 @@
 				2CC9973F2C05C81E008C9EB8 /* Sources */,
 				2CC997402C05C81E008C9EB8 /* Frameworks */,
 				2CC997412C05C81E008C9EB8 /* Resources */,
+				2CEE62012C240CA40067E550 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2CEE61FC2C240CA40067E550 /* PBXTargetDependency */,
+			);
+			name = HealthNote;
+			productName = HealthNote;
+			productReference = 2CC997432C05C81E008C9EB8 /* HealthNote.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2CEE61EF2C240CA30067E550 /* HealthNoteWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CEE61FE2C240CA40067E550 /* Build configuration list for PBXNativeTarget "HealthNoteWatch Watch App" */;
+			buildPhases = (
+				2CEE61EC2C240CA30067E550 /* Sources */,
+				2CEE61ED2C240CA30067E550 /* Frameworks */,
+				2CEE61EE2C240CA30067E550 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = HealthNote;
-			productName = HealthNote;
-			productReference = 2CC997432C05C81E008C9EB8 /* HealthNote.app */;
+			name = "HealthNoteWatch Watch App";
+			productName = "HealthNoteWatch Watch App";
+			productReference = 2CEE61F02C240CA30067E550 /* HealthNoteWatch Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -200,11 +307,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					2CC997422C05C81E008C9EB8 = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					2CEE61EF2C240CA30067E550 = {
+						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
@@ -222,6 +332,7 @@
 			projectRoot = "";
 			targets = (
 				2CC997422C05C81E008C9EB8 /* HealthNote */,
+				2CEE61EF2C240CA30067E550 /* HealthNoteWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -233,6 +344,15 @@
 			files = (
 				2CC9974E2C05C81F008C9EB8 /* Preview Assets.xcassets in Resources */,
 				2CC9974B2C05C81F008C9EB8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CEE61EE2C240CA30067E550 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CEE61FA2C240CA40067E550 /* Preview Assets.xcassets in Resources */,
+				2CEE61F72C240CA40067E550 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +384,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2CEE61EC2C240CA30067E550 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CEE61F52C240CA30067E550 /* ContentView.swift in Sources */,
+				2CEE620B2C2436DA0067E550 /* SpeechController.swift in Sources */,
+				2CEE62062C242C6A0067E550 /* RecordView.swift in Sources */,
+				2CEE61F32C240CA30067E550 /* HealthNoteWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2CEE61FC2C240CA40067E550 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CEE61EF2C240CA30067E550 /* HealthNoteWatch Watch App */;
+			targetProxy = 2CEE61FB2C240CA40067E550 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2CC9974F2C05C81F008C9EB8 /* Debug */ = {
@@ -327,6 +466,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
 			};
 			name = Debug;
 		};
@@ -383,16 +523,18 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
 			};
 			name = Release;
 		};
 		2CC997522C05C81F008C9EB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"HealthNote/Preview Content\"";
 				DEVELOPMENT_TEAM = BWGC5X6N92;
 				ENABLE_PREVIEWS = YES;
@@ -423,10 +565,11 @@
 		2CC997532C05C81F008C9EB8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"HealthNote/Preview Content\"";
 				DEVELOPMENT_TEAM = BWGC5X6N92;
 				ENABLE_PREVIEWS = YES;
@@ -454,6 +597,74 @@
 			};
 			name = Release;
 		};
+		2CEE61FF2C240CA40067E550 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "HealthNoteWatch Watch App/HealthNoteWatch Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HealthNoteWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = BWGC5X6N92;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HealthNoteWatch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = HealthNoteWatch;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "as we want to record the speech, so we also want to get grant access to user's microphone";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "we want to translate the speech into text instead of typing the speech";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cip.fardhana24.HealthNote;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cip.fardhana24.HealthNote.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+			};
+			name = Debug;
+		};
+		2CEE62002C240CA40067E550 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "HealthNoteWatch Watch App/HealthNoteWatch Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HealthNoteWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = BWGC5X6N92;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HealthNoteWatch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = HealthNoteWatch;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "as we want to record the speech, so we also want to get grant access to user's microphone";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "we want to translate the speech into text instead of typing the speech";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.cip.fardhana24.HealthNote;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cip.fardhana24.HealthNote.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -471,6 +682,15 @@
 			buildConfigurations = (
 				2CC997522C05C81F008C9EB8 /* Debug */,
 				2CC997532C05C81F008C9EB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2CEE61FE2C240CA40067E550 /* Build configuration list for PBXNativeTarget "HealthNoteWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CEE61FF2C240CA40067E550 /* Debug */,
+				2CEE62002C240CA40067E550 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
