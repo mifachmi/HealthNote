@@ -16,12 +16,17 @@ struct RawVoice: View {
             List {
                 Section {
                     ZStack {
-                        // this is for set height the Section
-                        Text(rawVoiceFromHome)
-                            .foregroundStyle(.clear)
-                            .font(.footnote)
-                        LookUpTextViewRepresentable(text: rawVoiceFromHome)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                        if #available(iOS 18.0, *) {
+                            Text(rawVoiceFromHome)
+                                .font(.footnote)
+                                .textSelectionAffinity(.automatic)
+                                .textSelection(.enabled)
+                        } else {
+                            // Fallback on earlier versions
+                            Text(rawVoiceFromHome)
+                                .font(.footnote)
+                                .textSelection(.enabled)
+                        }
                     }
                 } footer: {
                     Text("Using this feature, you can access the result of speech-to-text feature.")

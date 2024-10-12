@@ -19,8 +19,9 @@ class OpenAIViewModel {
     var state = State.idle
     var responseApi: String = ""
     var dataMappedOpenAiModel: MappedOpenAIModel?
+    var resultSummary: String?
     
-    func askToSummarize2(prompt: String, modelGPT: String) {
+    func askToSummarize(prompt: String, modelGPT: String) {
         state = .loading
         
         NetworkService().askSummary(prompt: prompt, modelGPT: modelGPT) { dataResponse in
@@ -31,13 +32,6 @@ class OpenAIViewModel {
             case .failure(let error):
                 self.state = .failed(error)
             }
-        }
-    }
-    
-    func askToSummarize(prompt: String, modelGPT: String) {
-        NetworkService().createChatCompletion(prompt: prompt, model: modelGPT) { result in
-            self.responseApi = result?.content ?? "No Information"
-            print(result?.content ?? "No data")
         }
     }
 }

@@ -30,40 +30,64 @@ struct ResultView: View {
                 Section {
                     if noteFromHome.summary != "" {
                         ZStack {
-                            // this is for set height the Section
-                            Text(noteFromHome.summary)
-                                .foregroundStyle(.clear)
-                                .font(.footnote)
-                                .fontWeight(.regular)
-                            
-                            LookUpTextViewRepresentable(text: noteFromHome.summary)
-                                .font(.footnote)
-                                .fontWeight(.regular)
-                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                            if #available(iOS 18.0, *) {
+                                Text(noteFromHome.summary)
+                                    .font(.footnote)
+                                    .fontWeight(.regular)
+                                    .textSelectionAffinity(.automatic)
+                                    .textSelection(.enabled)
+                            } else {
+                                // Fallback on earlier versions
+                                Text(noteFromHome.summary)
+                                    .font(.footnote)
+                                    .fontWeight(.regular)
+                                    .textSelection(.enabled)
+                            }
                         }
                     } else {
-                        switch openAIViewModel.state {
-                        case .idle, .loading:
-                            ProgressView()
-                        case .loaded(let mappedData):
+                        if openAIViewModel.dataMappedOpenAiModel?.content != nil {
                             ZStack {
-                                // this is for set height the Section
-                                Text(mappedData.content)
-                                    .foregroundStyle(.clear)
-                                    .font(.footnote)
-                                    .fontWeight(.regular)
-                                
-                                LookUpTextViewRepresentable(text: mappedData.content)
-                                    .font(.footnote)
-                                    .fontWeight(.regular)
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                                let mappedData = openAIViewModel.dataMappedOpenAiModel!
+                                if #available(iOS 18.0, *) {
+                                    Text(mappedData.content)
+                                        .font(.footnote)
+                                        .fontWeight(.regular)
+                                        .textSelectionAffinity(.automatic)
+                                        .textSelection(.enabled)
+                                } else {
+                                    // Fallback on earlier versions
+                                    Text(mappedData.content)
+                                        .font(.footnote)
+                                        .fontWeight(.regular)
+                                        .textSelection(.enabled)
+                                }
                             }
-                        case .failed(let errorResponse):
-                            Text(errorResponse.localizedDescription)
+                        } else {
+                            switch openAIViewModel.state {
+                            case .idle, .loading:
+                                ProgressView()
+                            case .loaded(let mappedData):
+                                ZStack {
+                                    if #available(iOS 18.0, *) {
+                                        Text(mappedData.content)
+                                        //.foregroundStyle(.clear)
+                                            .font(.footnote)
+                                            .fontWeight(.regular)
+                                            .textSelectionAffinity(.automatic)
+                                            .textSelection(.enabled)
+                                    } else {
+                                        // Fallback on earlier versions
+                                        Text(mappedData.content)
+                                            .font(.footnote)
+                                            .fontWeight(.regular)
+                                            .textSelection(.enabled)
+                                    }
+                                }
+                            case .failed(let errorResponse):
+                                Text(errorResponse.localizedDescription)
+                            }
                         }
                     }
-                    
-                    
                 } header: {
                     Text("Summary").font(.title3).foregroundStyle(.titleList).fontWeight(.semibold).textCase(nil)
                         .offset(x: -16).padding(.bottom, 4)
@@ -84,8 +108,9 @@ struct ResultView: View {
         .navigationTitle(noteFromHome.title == "" ? defaultTitlePage : noteFromHome.title)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: {
-            if noteFromHome.summary == "" {
-                openAIViewModel.askToSummarize2(prompt: setPrompt(language: speechController.speechLanguage, rawVoice: speechController.transcription), modelGPT: selectedModelGPT)
+            if (openAIViewModel.dataMappedOpenAiModel?.content == nil && noteFromHome.summary == "") || speechController.rawBeforeCurrentTranscript != speechController.transcription {
+                print("fetch api")
+                openAIViewModel.askToSummarize(prompt: setPrompt(language: speechController.speechLanguage, rawVoice: speechController.transcription), modelGPT: selectedModelGPT)
             }
         })
         .toolbar {
@@ -133,25 +158,6 @@ struct ResultView: View {
 }
 
 #Preview {
-    //    struct ResultView_Preview: View {
-    //        @State var navigationController = NavigationController()
-    //        @State var lang: SpeechLanguage = .indonesia
-    //        @Query var notes: [Note]
-    //
-    //        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    //        let container = try! ModelContainer(for: Note.self, configurations: config)
-    //        let emptyNote = Note(id: 0, title: "", createdAt: "", summary: "", rawVoice: "")
-    //
-    //        var body: some View {
-    //            ResultView(navController: navigationController, noteFromHome: .constant(emptyNote))
-    //                .environment(SpeechRecognitionController(lang: lang.rawValue))
-    //                .environment(OpenAIViewModel())
-    //                .modelContainer(AppModelContainer.container)
-    //        }
-    //    }
-    //
-    //    return ResultView_Preview()
-    
     let navigationController = NavigationController()
     let lang: SpeechLanguage = .indonesia
     let config = ModelConfiguration(isStoredInMemoryOnly: true)

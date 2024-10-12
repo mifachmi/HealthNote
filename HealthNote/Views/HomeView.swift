@@ -57,16 +57,7 @@ struct HomeView: View {
                             .onDelete(perform: { indexSet in
                                 deleteItem(at: indexSet)
                             })
-                        } 
-                    
-//                    header: {
-//                            HStack(spacing:0){
-//                                Text(compareDates(date1String: notes.first?.createdAt ?? getCurrentDate()))
-//                                    .font(.title3).foregroundStyle(.titleList)
-//                                    .fontWeight(.semibold).textCase(nil)
-//                                
-//                            }.offset(x: -16).padding(.bottom, 4)
-//                        }
+                        }
                     }
                     .scrollContentBackground(.automatic)
                     .searchable(text: $searchText, placement: .toolbar, prompt: "Search note title")
@@ -93,19 +84,7 @@ struct HomeView: View {
                 .frame(maxWidth: .infinity)
                 .background(.ultraThinMaterial)
             }
-            .onAppear {
-                let notesByDate = toNoteByDate(data: notes)
-                print("isi notesByDate: \(String(describing: notesByDate))")
-                
-                notesByDate.forEach { dataNoteByDate in
-                    print("isi dataNoteByDate: \(String(describing: dataNoteByDate.notesStruct.count))")
-                    
-                    dataNoteByDate.notesStruct.forEach { dataNote in
-                        print("isi dataNote: \(String(describing: dataNote.title))")
-                    }
-                }
-            }
-            .navigationTitle("Health's Notes")
+            .navigationTitle("Your Medical Notes")
             .navigationDestination(for: String.self, destination: { path in
                 if path == "Result" {
                     ResultView(navController: navController, noteFromHome: .constant(itemTapped ?? emptyNote))

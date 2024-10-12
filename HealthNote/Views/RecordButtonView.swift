@@ -14,11 +14,11 @@ struct RecordButtonView: View {
     @State private var statusMessage = "Checking availability..."
     @State var isRecordingFinished = false
     @State private var showAlert = false
-
+    
     @Environment(SpeechRecognitionController.self) var speechController
     @Bindable var navController: NavigationController
     @Binding var selectedLanguage: SpeechLanguage
-        
+    
     var body: some View {
         if !speechController.isRecording {
             Text("Click the button below\nto start recording your\nconversation")
@@ -31,6 +31,7 @@ struct RecordButtonView: View {
                 if authorized {
                     self.speechController.isRecording.toggle()
                     speechController.speechLanguage = selectedLanguage.rawValue
+                    
                     if (self.speechController.isRecording) {
                         self.speechController.startRecordingAndTranscribing()
                         isRecordingFinished = false

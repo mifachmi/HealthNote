@@ -33,6 +33,14 @@ struct RecordView: View {
                         Text("\(speechController.transcription)")
                             .multilineTextAlignment(.leading)
                             .font(.subheadline)
+                    } footer: {
+                        Button {
+                            speechController.resetTranscription()
+                        } label: {
+                            Text("reset transcription").textCase(.uppercase)
+                                .font(.footnote)
+                                .foregroundStyle(.red)
+                        }
                     }
                 }
                 
@@ -50,9 +58,9 @@ struct RecordView: View {
         .navigationTitle("Record")
         .navigationBarTitleDisplayMode(.inline)
         .background(.recordBackground)
-        .onAppear {
-            speechController.resetTranscription()
-        }
+        //        .onAppear {
+        //            speechController.resetTranscription()
+        //        }
     }
 }
 

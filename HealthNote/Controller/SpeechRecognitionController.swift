@@ -18,6 +18,7 @@ class SpeechRecognitionController: NSObject, AVAudioRecorderDelegate {
     var timeStamp: TimeInterval = 0
     var audioLevels: [Float] = [] // Published variable to hold audio levels for waveform
     var speechLanguage = ""
+    var rawBeforeCurrentTranscript: String = ""
     
     private var audioRecorder: AVAudioRecorder? // AVAudioRecorder instance for recording audio
     private var audioEngine = AVAudioEngine() // AVAudioEngine instance for handling audio input
@@ -49,6 +50,7 @@ class SpeechRecognitionController: NSObject, AVAudioRecorderDelegate {
         recognitionTask?.cancel() // Cancel the recognition task
         isRecording = false // Update the recording state
         stopTimer() // Stop the timer
+        rawBeforeCurrentTranscript = lastTranscription
     }
     
     // Method to start audio recording
