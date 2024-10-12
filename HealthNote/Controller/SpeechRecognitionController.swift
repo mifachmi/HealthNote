@@ -193,6 +193,7 @@ class SpeechRecognitionController: NSObject, AVAudioRecorderDelegate {
         self.transcription = ""
         self.lastTranscription = ""
         self.timeStamp = 0
+        self.rawBeforeCurrentTranscript = ""
         stopTimer()
     }
     

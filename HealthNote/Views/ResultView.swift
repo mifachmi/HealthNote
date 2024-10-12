@@ -70,7 +70,6 @@ struct ResultView: View {
                                 ZStack {
                                     if #available(iOS 18.0, *) {
                                         Text(mappedData.content)
-                                        //.foregroundStyle(.clear)
                                             .font(.footnote)
                                             .fontWeight(.regular)
                                             .textSelectionAffinity(.automatic)
@@ -108,8 +107,12 @@ struct ResultView: View {
         .navigationTitle(noteFromHome.title == "" ? defaultTitlePage : noteFromHome.title)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: {
-            if (openAIViewModel.dataMappedOpenAiModel?.content == nil && noteFromHome.summary == "") || speechController.rawBeforeCurrentTranscript != speechController.transcription {
-                print("fetch api")
+            // nge-fetch api kalau
+            // content nil dan notefromhome nil
+            // raw sama transcript beda, tapi content ga nil
+            // masih ada bug kalau recordnya di edit
+            
+            if (openAIViewModel.dataMappedOpenAiModel?.content == nil && noteFromHome.summary == "") || (speechController.rawBeforeCurrentTranscript != "" && speechController.rawBeforeCurrentTranscript != speechController.transcription && openAIViewModel.dataMappedOpenAiModel?.content != nil) {
                 openAIViewModel.askToSummarize(prompt: setPrompt(language: speechController.speechLanguage, rawVoice: speechController.transcription), modelGPT: selectedModelGPT)
             }
         })
